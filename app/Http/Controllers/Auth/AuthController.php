@@ -51,7 +51,7 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|min:3|max:50|unique:users',
+            'username' => 'required|min:3|max:50|without_spaces|unique:users',
             'password' => 'required|min:6|confirmed',
             'email' => 'required|email|max:255|unique:users',
             'name' => 'required|max:255',
@@ -81,7 +81,13 @@ class AuthController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        $user = $this->create($request->all());
+        $username = strtolower($request->username);
+        $user = User::create([
+            'username' => $username,
+            'password' => bcrypt($request->password),
+            'email' => $request->email,
+            'name' => $request->name
+        ]);
         return redirect('/register')->with('status', 'Thank you, your username has successfully registered in our database!');
     }
 }
