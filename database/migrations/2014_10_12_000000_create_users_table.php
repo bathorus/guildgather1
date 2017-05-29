@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->datetime('last_notification_email')->nullable();
             $table->boolean('banned')->default(false);
             $table->string('banned_reason')->nullable();
+            $table->boolean('activated')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

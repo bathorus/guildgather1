@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
@@ -71,5 +72,16 @@ class AuthController extends Controller
             'email' => $data['email'],
             'name' => $data['name'],
         ]);
+    }
+
+    public function register(Request $request) {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $user = $this->create($request->all());
+        return redirect('/register')->with('status', 'Thank you, your username has successfully registered in our database!');
     }
 }

@@ -5,6 +5,32 @@
 
     RewriteEngine On
 
+    # Force Sub-Domains to non-www
+    # RewriteBase /
+    # RewriteCond %{HTTP_HOST} ^(.+)\.guildgather\.com$ [NC]
+    # RewriteRule ^(.*)$ http://guildgather.com/$1 [L,R=301]
+    
+    # Force Sub-Domains to www
+    # RewriteCond %{HTTP_HOST} guildgather\.com$ [NC]
+    # RewriteRule ^ http://www.guildgather.com%{REQUEST_URI} [R=301,L,NE]
+    # RewriteCond %{HTTP_HOST} ^(?:www\.)?((?!www).+)\.guildgather\.com$ [NC]
+    # RewriteRule !^%1 http://www.guildgather.com/%1%{REQUEST_URI} [R=301,L,NE]
+
+    # Force non-www
+    # RewriteBase /
+    # RewriteCond %{HTTP_HOST} ^www.guildgather.com [NC]
+    # RewriteRule ^(.*)$ http://guildgather.com/$1 [L,R=301]
+
+    # Force www
+    # RewriteBase /
+    # RewriteCond %{HTTP_HOST} !^www\. [NC]
+    # RewriteRule ^(.*)$ http://www.guildgather.com/$1 [L,R=301]
+
+    # Force SSL
+    # RewriteCond %{HTTPS} !=on
+    # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)/$ /$1 [L,R=301]

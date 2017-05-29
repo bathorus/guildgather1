@@ -19,3 +19,6 @@ Route::get('/article/', 'ArticleController@index');
 
 //about
 Route::get('/about/', 'HomeController@about');
+
+//subscribe
+Route::post('/subscribe/store', 'HomeController@subscribe');
