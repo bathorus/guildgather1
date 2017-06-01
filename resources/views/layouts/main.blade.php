@@ -9,10 +9,10 @@
         <!-- Bootstrap v3.3.7 -->
         <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.min.css') }}">
         <!-- Font Awesome v4.7.0 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ asset('/assets/css/font-awesome.min.css') }}">
         @yield('style')
         <!-- Main CSS -->
-        <link rel="stylesheet" href="{{ asset('/assets/css/styles.css') }}">
+        <link rel="stylesheet" href="{{ asset('/assets/css/styles.min.css') }}">
         <link rel="shortcut icon" href="{{ asset('/assets/images/ico/favicon.png') }}">
     </head>
 
@@ -25,22 +25,25 @@
 
                         <div class="col-sm-5">
                             <ul class="social-media">
-                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://www.instagram.com/yfemale_id/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/GuildGather-249992778800238/?ref=br_tf" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/guildgather/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC4FWbiw6GCz6V-5ZieHSlWQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
                             </ul> <!-- /social-media -->
                         </div> <!-- /col-sm-5 -->
                         
                         <div class="col-sm-2">
                             <div class="logo">
-                                <img src="{{ asset('/assets/images/logo.png') }}">
+                                <a href="{{ url('/') }}">
+                                    <img src="{{ asset('/assets/images/logo.png') }}">
+                                </a>
                             </div> <!-- /logo -->
                         </div> <!-- /col-sm-2 -->
 
                         <div class="col-sm-5">
                             <ul class="menu">
-                                <li><a href="#">What is GuildGather?</a></li>
-                                <li><a href="#">Article</a></li>
-                                <li><a href="#">Login / Register</a></li>
+                                <li><a href="{{ url('/#homepage-feature') }}">What is GuildGather?</a></li>
+                                <!-- <li><a href="#">Article</a></li> -->
+                                <li><a href="{{ url('/register') }}">Register your Username</a></li>
                             </ul>
                         </div> <!-- /col-sm-5 -->
 
@@ -68,9 +71,9 @@
                         <div class="col-sm-3">
                             <ul class="footer-menu">
                                 <li><b>Menu</b></li>
-                                <li><a href="#">What is GuildGather?</a></li>
-                                <li><a href="#">Article</a></li>
-                                <li><a href="#">Login / Register</a></li>
+                                <li><a href="{{ url('/#homepage-feature') }}">About Us</a></li>
+                                <!-- <li><a href="#">Article</a></li> -->
+                                <li><a href="{{ url('/register') }}">Register</a></li>
                             </ul>
                         </div> <!-- /col-sm-3 -->
 
@@ -85,8 +88,9 @@
                         <div class="col-sm-3">
                             <p><b>Connect with us</b></p>
                             <ul class="social-media">
-                                <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="https://www.instagram.com/yfemale_id/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/GuildGather-249992778800238/?ref=br_tf" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/guildgather/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UC4FWbiw6GCz6V-5ZieHSlWQ" target="_blank"><i class="fa fa-youtube"></i></a></li>
                             </ul> <!-- /social-media -->
                         </div> <!-- /col-sm-3 -->
 
@@ -105,14 +109,16 @@
         </footer> <!-- /footer -->
 
         <!-- jQuery v2.2.4 -->
-        <script src="{{ asset('/assets/js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/jquery.min.js') }}"></script>
         <!-- Bootstrap v3.3.7 -->
-        <script src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/bootstrap.min.js') }}"></script>
         <!-- Javascript -->
-        <script src="{{ asset('/assets/js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/main.js') }}"></script>
         <!-- jQuery scrollUp -->
-        <script src="{{ asset('/assets/js/jquery.scrollUp.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/assets/js/jquery.scrollUp.min.js') }}"></script>
         @yield('script')
+        <!-- Main JS -->
+        <script type="text/javascript" src="{{ asset('/assets/js/main.js') }}"></script>
         <!-- Analytics Javascript -->
     </body>
 </html>
